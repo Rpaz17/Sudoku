@@ -42,7 +42,7 @@ public class CuadroSudoku extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelFondo.setBackground(new java.awt.Color(153, 153, 255));
-        panelFondo.setPreferredSize(new java.awt.Dimension(520, 400));
+        panelFondo.setPreferredSize(new java.awt.Dimension(540, 420));
         panelFondo.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N

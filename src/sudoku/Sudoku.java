@@ -15,6 +15,7 @@ public class Sudoku {
 
     public Sudoku() {
         sudoku = new int[9][9];
+        limpiarSudoku();
     }
     
     public boolean resolverSudoku() {

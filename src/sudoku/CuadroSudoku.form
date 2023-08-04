@@ -45,7 +45,7 @@
           <Color blue="ff" green="99" red="99" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[520, 400]"/>
+          <Dimension value="[540, 420]"/>
         </Property>
       </Properties>
 
