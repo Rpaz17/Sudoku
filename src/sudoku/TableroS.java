@@ -23,7 +23,7 @@ public class TableroS extends JPanel{
      private Color fcSeleccionada2;
      private Color txtSeleccionado1;
      private Color txtSeleccionado2; 
-     private CuadroSudoku sudoku;
+     
      public TableroS(){
             initComponents();
      }
@@ -40,8 +40,6 @@ public class TableroS extends JPanel{
           fcSeleccionada2= Color.white;
          txtSeleccionado1 = Color.black;
          txtSeleccionado2 = Color.white;
-         sudoku = new CuadroSudoku();
-         
      }
 
      public void create(){
