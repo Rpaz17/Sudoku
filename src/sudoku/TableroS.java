@@ -5,6 +5,7 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -23,7 +24,8 @@ public class TableroS extends JPanel{
      private Color fcSeleccionada2;
      private Color txtSeleccionado1;
      private Color txtSeleccionado2; 
-     
+     private Sudoku sudoku;
+     private ArrayList<JTextField>casillasAux;
      public TableroS(){
             initComponents();
      }
@@ -40,6 +42,8 @@ public class TableroS extends JPanel{
           fcSeleccionada2= Color.white;
          txtSeleccionado1 = Color.black;
          txtSeleccionado2 = Color.white;
+         sudoku = new Sudoku();
+         casillasAux = new ArrayList<>();
      }
 
      public void create(){
@@ -105,20 +109,40 @@ public class TableroS extends JPanel{
          texto.addMouseListener(evento);
      }
      public void pressed(JTextField texto){
+         for(JTextField txt:casillasAux){
+             txt.setBackground(background1);
+             txt.setForeground(background2);
+             txt.setBorder(BorderFactory.createLineBorder(backgroundPanel,1));
+         }
+         casillasAux.clear();
            for (int i = 0; i<casillasS.length;i++){
                      for (int x=0; x<casillasS[0].length;x++){
                          if (casillasS[i][x]==texto){
                              for (int j=0; j<casillasS.length;j++){
                                  casillasS[j][x].setBackground(background1);
                                  casillasS[j][x].setForeground(background2);
+                                 casillasAux.add(casillasS[i][j]);
                              }
                              for (int j=0;j<casillasS.length;j++){
                                  casillasS[i][j].setBackground(background1);
                                  casillasS[i][j].setForeground(background2);
+                                 casillasAux.add(casillasS[i][j]);
+                             }
+                             int posI;
+                             int posX;
+                             posI= sudoku.subCuadranteActual(i);
+                             posX = sudoku.subCuadranteActual(x);
+                             for (int k=0;k<casillasS.length;k++){
+                                 for (int a=0;a<casillasS.length;a++){
+                                  casillasS[k][a].setBackground(background1);
+                                 casillasS[k][a].setForeground(background2);
+                                 casillasAux.add(casillasS[k][a]);
+                                 
+                                 }
                              }
                              casillasS[i][x].setBackground(txtSeleccionado2);
                              casillasS[i][x].setBackground(txtSeleccionado1);
-                             
+                          
                              casillasS[i][x].setBorder(BorderFactory.createLineBorder(Color.white,1));
                              return;
                          }
