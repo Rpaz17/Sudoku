@@ -121,7 +121,6 @@ public class TableroS extends JPanel{
                     if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
                         texto.setText("");
                     }
-
                     if (e.getKeyChar() >= 49 && e.getKeyChar() <= 57) {
                         texto.setText(String.valueOf(e.getKeyChar()));
                     }
