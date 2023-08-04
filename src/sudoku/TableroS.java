@@ -3,6 +3,8 @@ package sudoku;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -66,7 +68,7 @@ public class TableroS extends JPanel{
                 caja.setFont(new Font("Montserrat", Font.BOLD, tamañoLt));
                 caja.setEditable(false);
                 caja.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                caja.setBorder(BorderFactory.createLineBorder(backgroundPanel, 1));
+                caja.setBorder(BorderFactory.createLineBorder(backgroundPanel, 2));
                 caja.setVisible(true);
                 x += casillasAncho;
                 if ((j + 1) % 3 == 0) {
@@ -104,6 +106,34 @@ public class TableroS extends JPanel{
 
              @Override
              public void mouseExited(MouseEvent e) {
+             }
+         };
+         KeyListener tecla=new KeyListener() {
+             @Override
+             public void keyTyped(KeyEvent e) {
+             }
+
+             @Override
+             public void keyPressed(KeyEvent e) {
+                 if (txtGenerado(texto)) {
+                    return;
+                } else {
+                    if (e.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
+                        texto.setText("");
+                    }
+
+                    if (e.getKeyChar() >= 49 && e.getKeyChar() <= 57) {
+                        texto.setText(String.valueOf(e.getKeyChar()));
+                    }
+                }
+             }
+
+             @Override
+             public void keyReleased(KeyEvent e) {
+             }
+
+             private boolean txtGenerado(JTextField texto) {
+                 throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
              }
          };
          texto.addMouseListener(evento);
